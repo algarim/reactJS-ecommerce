@@ -1,0 +1,27 @@
+.numero-carrito {
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    opacity: 1;
+
+    padding: 0.5px 4px;
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    position: absolute;
+    margin-right: -5px;
+}
+
+.carrito img {
+    height: 3em;
+}
+
+.carrito{
+    flex: 1;
+    display: flex;
+    justify-content: end;
+
+    margin-left: -20px;
+    padding-right: 20px;
+}
