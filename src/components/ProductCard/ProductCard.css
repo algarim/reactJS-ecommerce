@@ -6,3 +6,8 @@
     object-fit: cover;
 }
 
+.product-card {
+    width: 300px;
+    margin: 15px;
+}
+
