@@ -1,4 +1,5 @@
 import './ProductCard.css'
+import imgCorazon from "../../assets/img/heart.png"
 
 //BOOTSTRAP
 import Button from 'react-bootstrap/Button';
@@ -14,7 +15,7 @@ const ProductCard = ({ img, nombre, precio }) => {
                     <p className='d-inline-block m-0'>Precio:</p>
                     <div>
                         <span>{precio}</span>
-                        <img className='currency-icon d-inline-block px-1' src="src/assets/img/heart.png" alt="corazón" />
+                        <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
                     </div>
                 </Card.Text>
                 <br />

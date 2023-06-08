@@ -1,5 +1,7 @@
-import React from 'react'
 import './NavBar.css'
+import logo from "../../assets/img/paw.png"
+
+import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 
 // BOOTSTRAP
@@ -15,7 +17,7 @@ const NavBar = () => {
         <header>
             <div className='logo'>
                 <h1>Gatitienda</h1>
-                <img src="src/assets/img/paw.png" alt="Mano Gatito Corazón" />
+                <img src={logo} alt="Mano Gatito Corazón" />
             </div>
 
 
