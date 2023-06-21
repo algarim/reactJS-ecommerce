@@ -1,11 +1,11 @@
-import './ProductCard.css'
+import './Item.css'
 import imgCorazon from "../../assets/img/heart.png"
 
 //BOOTSTRAP
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const ProductCard = ({ img, nombre, precio }) => {
+const Item = ({ img, nombre, precio }) => {
     return (
         <Card className='product-card'>
             <Card.Img className='product-img' variant="top" src={img} />
@@ -18,11 +18,10 @@ const ProductCard = ({ img, nombre, precio }) => {
                         <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
                     </div>
                 </Card.Text>
-                <br />
-                <Button variant="primary" className='m-0'>Agregar al carrito</Button>
+                <Button variant="primary" className='mt-2'>Ver detalles</Button>
             </Card.Body>
         </Card>
     );
 }
 
-export default ProductCard;
+export default Item;
