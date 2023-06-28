@@ -21,7 +21,7 @@ const ItemCount = () => {
     }
 
     return (
-        <div>
+        <div className="d-flex align-items-center">
             <button onClick={decrementarContador} className="btn"> - </button>
             <span> {contador} </span>
             <button onClick={incrementarContador} className="btn"> + </button>

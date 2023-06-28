@@ -13,13 +13,11 @@ const ItemDetail = ({ img, nombre, precio, descripcion }) => {
             <Card.Img className='product-img' variant="top" src={img} />
             <Card.Body>
                 <Card.Title className='fs-4'>{nombre}</Card.Title>
+                
                 <Card.Text className='m-0'>
-                    <p className='d-inline-block m-0'>Precio:</p>
-                    <div>
-                        <span>{precio}</span>
-                        <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
-                        <p className="mt-2"> {descripcion} </p>
-                    </div>
+                    <span>{precio}</span>
+                    <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
+                    <p className="mt-2"> {descripcion} </p>
                 </Card.Text>
 
                 <div className="add-to-cart-button">

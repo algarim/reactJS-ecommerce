@@ -4,6 +4,8 @@ import logo from "../../assets/img/paw.png"
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 
+import { Link, NavLink } from 'react-router-dom'
+
 // BOOTSTRAP
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -15,31 +17,30 @@ const NavBar = () => {
     return (
 
         <header>
-            <div className='logo'>
+            <Link to={'/'} className='logo link'>
                 <h1>Gatitienda</h1>
                 <img src={logo} alt="Mano Gatito Corazón" />
-            </div>
+            </Link>
 
 
-            <Navbar bg="light" expand='md' className="my-1 navbar">
+            <Navbar expand='md' className="my-1 navbar">
                 <Container fluid>
                     <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" className='m-auto'/>
                     <Navbar.Offcanvas
                         id="offcanvasNavbar-expand-md"
                         aria-labelledby="offcanvasNavbarLabel-expand-md"
-                        placement="end" className="pt-2"
+                        placement="end" className="pt-2 background-color w-auto px-3"
                     >
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel-expand-md"                         className="offcanvas-title">
+                            <Offcanvas.Title id="offcanvasNavbarLabel-expand-md" className='pe-5'>
                                 Categorías
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            <Nav className="justify-content-md-evenly flex-grow-1">
-                                <Nav.Link href="#action1" className="navbar-categoria">Lindos</Nav.Link>
-                                <Nav.Link href="#action2" className="navbar-categoria">Graciosos</Nav.Link>
-                                <Nav.Link href="#action2" className="navbar-categoria">Enojados</Nav.Link>
-                                <Nav.Link href="#action2" className="navbar-categoria">Pensativos</Nav.Link>
+                            <Nav className="justify-content-md-evenly flex-grow-1" offcanvasNavbar-expand-md>
+                                <Nav.Link as={NavLink} to="/categoria/cariñosos" className="navbar-categoria" >Cariñosos</Nav.Link>
+                                <Nav.Link as={NavLink} to="/categoria/tranquilos" className="navbar-categoria">Tranquilos</Nav.Link>
+                                <Nav.Link as={NavLink} to="/categoria/independientes" className="navbar-categoria">Independientes</Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
