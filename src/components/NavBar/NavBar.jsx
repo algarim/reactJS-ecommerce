@@ -37,8 +37,8 @@ const NavBar = () => {
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            <Nav className="justify-content-md-evenly flex-grow-1" offcanvasNavbar-expand-md>
-                                <Nav.Link as={NavLink} to="/categoria/cariñosos" className="navbar-categoria" >Cariñosos</Nav.Link>
+                            <Nav className="justify-content-md-evenly flex-grow-1">
+                                <Nav.Link as={NavLink} to="/categoria/cariñosos" className="navbar-categoria">Cariñosos</Nav.Link>
                                 <Nav.Link as={NavLink} to="/categoria/tranquilos" className="navbar-categoria">Tranquilos</Nav.Link>
                                 <Nav.Link as={NavLink} to="/categoria/independientes" className="navbar-categoria">Independientes</Nav.Link>
                             </Nav>
