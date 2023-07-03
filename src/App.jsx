@@ -21,6 +21,7 @@ function App() {
           <Route path='/' element={<ItemListContainer greeting='¡Bienvenidos a la mejor tienda de gatitos del mundo!' />} />
           <Route path='/categoria/:idCategoria' element={<ItemListContainer />} />
           <Route path='/item/:idItem' element={<ItemDetailContainer />} />
+          <Route path='/cart' element={ <h3> Página en construcción </h3> } />
           <Route path='/*' element={ <h3> La página que busca no existe </h3> } />
 
         </Routes>
