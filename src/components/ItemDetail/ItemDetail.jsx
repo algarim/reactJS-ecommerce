@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
 import imgCorazon from "../../assets/img/heart.png"
 import ItemCount from '../ItemCount/ItemCount';
+
+import { useState, useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
+
+//Style
 import "./ItemDetail.css"
-import { useState } from "react";
 
 //BOOTSTRAP
 import Card from 'react-bootstrap/Card';
 
-const ItemDetail = ({ img, nombre, precio, stock, descripcion }) => {
+const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
 
-    // 1) Creamos un estado con la cantidad de productos agregados
- const [agregarCantidad, setAgregarCantidad] = useState(0);
+    const [agregarCantidad, setAgregarCantidad] = useState(0);
+    const {agregarProducto} = useContext(CarritoContext);
 
- // 2) Creamos una función manejadora de la cantidad:
- const manejadorCantidad = (cantidad) => {
-   setAgregarCantidad(cantidad);
-   console.log("Productos agregados" + cantidad);
- }
+    const manejadorCantidad = (cantidad) => {
+        setAgregarCantidad(cantidad);
+        
+       const item = {id, nombre, precio};
+        agregarProducto(item, cantidad);
+    }
 
     return (
         <Card className='details-card'>
@@ -24,14 +29,20 @@ const ItemDetail = ({ img, nombre, precio, stock, descripcion }) => {
             <Card.Body>
                 <Card.Title className='fs-4'>{nombre}</Card.Title>
 
-                <Card.Text className='m-0'>
+                <div className='m-0'>
                     <span>{precio}</span>
                     <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
                     <p className="mt-2"> {descripcion} </p>
-                </Card.Text>
+                </div>
 
                 {
-                    agregarCantidad > 0 ? ( <Link to='/cart'> Finalizar compra </Link> ) : (<ItemCount inicial='1' stock={stock} funcionAgregar={manejadorCantidad} />)
+                    agregarCantidad > 0 ? (
+                    <div>
+                        <Link to='/cart' className="me-2"> Finalizar compra </Link>
+                        <Link to='/' className="ms-2"> Ver más productos </Link>
+                    </div>
+                    ) : (
+                    <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>)
                 }
 
             </Card.Body>
