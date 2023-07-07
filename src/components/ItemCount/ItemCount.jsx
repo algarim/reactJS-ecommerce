@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const ItemCount = ({inicial, stock, funcionAgregar}) => {
+const ItemCount = ({ inicial, stock, mostrarContador = true, funcionAgregar }) => {
     const [contador, setContador] = useState(inicial);
 
     // Función para incrementar contador
@@ -19,13 +19,16 @@ const ItemCount = ({inicial, stock, funcionAgregar}) => {
 
     return (
         <div className="add-to-cart-button">
-            <div className="d-flex align-items-center">
-                <button onClick={decrementarContador} className="btn"> - </button>
-                <span> {contador} </span>
-                <button onClick={incrementarContador} className="btn"> + </button>
-            </div>
+            {mostrarContador && (
+                <div className="d-flex align-items-center">
+                    <button onClick={decrementarContador} className="btn"> - </button>
+                    <span> {contador} </span>
+                    <button onClick={incrementarContador} className="btn"> + </button>
+                </div>
+                )
+            }
 
-            <button onClick={ () => funcionAgregar(contador)} >Agregar al carrito</button>
+            <button onClick={() => funcionAgregar(contador)} className="button">Agregar al carrito</button>
         </div>
     )
 }
