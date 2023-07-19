@@ -28,6 +28,10 @@ const Item = ({ id, img, nombre, precio, stock }) => {
                     <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
                 </Card.Text>
 
+                <Card.Text className='m-1'>
+                    Stock: {stock}*
+                </Card.Text>
+
                 <div className='d-flex justify-content-center align-items-center flex-wrap'>
                     <Button as={Link} to={`/item/${id}`} variant="primary" className='m-2'> Ver detalles </Button>
 

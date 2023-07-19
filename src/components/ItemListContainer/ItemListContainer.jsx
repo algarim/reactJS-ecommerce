@@ -1,28 +1,42 @@
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
 import { useState, useEffect } from 'react'
-import { getProductosDeUnaCategoria, getTodosLosProductos } from '../../../asyncmock'
 import { useParams } from 'react-router-dom'
+
+import { db } from '../../services/config'
+import { collection, getDocs, query, where } from "firebase/firestore";
+
 
 const ItemListContainer = (props) => {
   const [productos, setProductos] = useState([]);
 
-  const {idCategoria} = useParams();
+  const { idCategoria } = useParams();
 
-  let titulo = idCategoria ? `Gatitos ${idCategoria}` : props.greeting ;
+  let titulo = idCategoria ? `Gatitos ${idCategoria}` : props.greeting;
 
-  useEffect( () => {
-    const getProductos = idCategoria ? getProductosDeUnaCategoria : getTodosLosProductos;    
+  // Traemos los productos requiridos del inventario cada vez que se carga la página o se cambia de categoría
 
-    getProductos(idCategoria)
-    .then(respuesta => setProductos(respuesta))
-    .catch(error => console.log(error))
-  }, [idCategoria] )
+  useEffect(() => {
+    const misProductos = idCategoria ? query(collection(db, "inventario"), where("idCat", "==", idCategoria)) : collection(db, "inventario");
+
+    getDocs(misProductos)
+      .then(res => {
+        const nuevosProductos = res.docs.map(doc => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        
+        setProductos(nuevosProductos);
+      })
+      .catch(error => console.log(error));
+  }, [idCategoria])
 
   return (
     <>
       <h2 className='m-4'>{titulo}</h2>
-      <ItemList productos ={productos}/>
+      <ItemList productos={productos} />
+
+      <p> *Para asegurar stock, nuestros gatitos son clonados regularmente en instalaciones especializadas. </p>
     </>
   )
 }
