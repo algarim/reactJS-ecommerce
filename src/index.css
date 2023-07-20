@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 
-  background-image: url("./img/cats-background-2.jpg");
+  background-image: url("../img/cats-background-2.jpg");
   background-size: contain;
 }
 

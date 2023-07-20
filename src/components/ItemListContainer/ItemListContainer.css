@@ -10,7 +10,7 @@ h2 {
 }
 
 .cat-title {
-    background-image: url("./img/red-highlighter.png");
+    background-image: url("../../img/red-highlighter.png");
     background-size: 80vw 100px;
     background-repeat: no-repeat;
     background-position: 60% 50%;
