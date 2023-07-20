@@ -33,10 +33,10 @@ const ItemListContainer = (props) => {
 
   return (
     <>
-      <h2 className='m-4'>{titulo}</h2>
+      <h2 className='m-4 cat-title'>{titulo}</h2>
       <ItemList productos={productos} />
 
-      <p> *Para asegurar stock, nuestros gatitos son clonados regularmente en instalaciones especializadas. </p>
+      <p className='my-4 text-background' > *Para asegurar stock, nuestros gatitos son clonados regularmente en instalaciones especializadas. </p>
     </>
   )
 }

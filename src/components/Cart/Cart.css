@@ -1,0 +1,14 @@
+#carrito {
+    max-width: 900px;
+    margin: auto;
+    padding: 35px 0;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carrito-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 13px;
+}

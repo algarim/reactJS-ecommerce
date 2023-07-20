@@ -7,4 +7,56 @@ h2 {
     justify-content: space-evenly;
     align-content: center;
     flex-wrap: wrap;
-  }
+}
+
+.cat-title {
+    background-image: url("./img/red-highlighter.png");
+    background-size: 80vw 100px;
+    background-repeat: no-repeat;
+    background-position: 60% 50%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.text-background {
+    background-color: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+}
+
+@media (max-width: 1200px) {
+    .cat-title {
+        background-size: 95vw 100px;
+        background-position: 35px 50%;
+    }
+}
+
+@media (max-width: 900px) {
+    .cat-title {
+        height: 150px;
+        background-size: 105vw 150px;
+        background-position: -20px 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .cat-title {
+        height: 200px;
+        background-size: 100vw 200px;
+        background-position: 0 50%;
+    }
+}
+
+@media (max-width: 420px) {
+    .cat-title {
+        height: 230px;
+        background-size: 90vw 230px;
+    }
+}

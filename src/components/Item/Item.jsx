@@ -1,5 +1,4 @@
 import './Item.css'
-import imgCorazon from "../../assets/img/heart.png"
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import { useContext } from 'react';
@@ -13,7 +12,7 @@ import Card from 'react-bootstrap/Card';
 const Item = ({ id, img, nombre, precio, stock }) => {
     const { agregarProducto } = useContext(CarritoContext);
     const manejadorAgregar = (cantidad) => {
-        const item = { id, nombre, precio };
+        const item = { id, nombre, precio, img };
         agregarProducto(item, cantidad);
     }
 
@@ -23,12 +22,12 @@ const Item = ({ id, img, nombre, precio, stock }) => {
             <Card.Body className='p-2'>
                 <Card.Title className='fs-4 mb-1'>{nombre}</Card.Title>
 
-                <Card.Text className='m-1'>
+                <Card.Text className='m-1 precio'>
                     <span>{precio}</span>
-                    <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
+                    <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
                 </Card.Text>
 
-                <Card.Text className='m-1'>
+                <Card.Text className='my-2'>
                     Stock: {stock}*
                 </Card.Text>
 

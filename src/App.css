@@ -1,4 +1,7 @@
+/* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
 
 * {
   margin: 0;
@@ -6,7 +9,7 @@
   text-align: center;
 }
 
-#root{
+#root {
   width: 100%;
 }
 
@@ -19,16 +22,16 @@
   opacity: 0.7;
 }
 
-h1{
+h1 {
   font-family: 'Pacifico', cursive;
   font-size: 3.2em;
+  font-weight: normal;
 }
 
-a {
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+h2 {
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
 .button {
@@ -38,14 +41,24 @@ a:hover {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #f9f9f9;
   cursor: pointer;
+  border: 1px rgb(173, 173, 173) solid;
   transition: border-color 0.25s;
 }
+
 .button:hover {
   border-color: black;
+  background-color: rgb(211, 201, 212);
 }
+
 .button:focus,
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.precio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

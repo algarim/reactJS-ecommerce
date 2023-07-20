@@ -1,4 +1,4 @@
-.numero-carrito {
+.numero-carrito-widget {
     border: 1px solid lightblue;
     background-color: lightblue;
     opacity: 1;
@@ -13,11 +13,11 @@
     margin-right: -5px;
 }
 
-.carrito img {
+.carrito-widget img {
     height: 2.6em;
 }
 
-.carrito{
+.carrito-widget{
     flex: 1;
     display: flex;
     justify-content: end;
@@ -27,11 +27,11 @@
 }
 
 @media (min-width: 576px) {
-    .carrito img {
+    .carrito-widget img {
         height: 3em;
     }
 
-    .numero-carrito {
+    .numero-carrito-widget {
         font-size: 1rem;
     }
 }

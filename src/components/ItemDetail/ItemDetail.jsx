@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import imgCorazon from "../../assets/img/heart.png"
 import ItemCount from '../ItemCount/ItemCount';
 
 import { useState, useContext } from "react";
@@ -14,12 +13,12 @@ import Card from 'react-bootstrap/Card';
 const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
 
     const [agregarCantidad, setAgregarCantidad] = useState(0);
-    const {agregarProducto} = useContext(CarritoContext);
+    const { agregarProducto } = useContext(CarritoContext);
 
     const manejadorCantidad = (cantidad) => {
         setAgregarCantidad(cantidad);
-        
-       const item = {id, nombre, precio};
+
+        const item = { id, nombre, precio, img };
         agregarProducto(item, cantidad);
     }
 
@@ -31,19 +30,23 @@ const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
 
                 <div className='m-0'>
                     <span>{precio}</span>
-                    <img className='currency-icon d-inline-block px-1' src={imgCorazon} alt="corazones" />
-                    <p> Stock: {stock} </p>
-                    <p className="mt-2"> {descripcion} </p>
+                    <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
+
+                    <Card.Text className='my-2'>
+                        Stock: {stock}*
+                    </Card.Text>
+
+                    <Card.Text className="my-3"> {descripcion} </Card.Text>
                 </div>
 
                 {
                     agregarCantidad > 0 ? (
-                    <div>
-                        <Link to='/cart' className="me-2"> Finalizar compra </Link>
-                        <Link to='/' className="ms-2"> Volver a la tienda </Link>
-                    </div>
+                        <div>
+                            <Link to='/cart' className="me-2 btn btn-primary"> Finalizar compra </Link>
+                            <Link to='/' className="ms-2 button"> Volver a la tienda </Link>
+                        </div>
                     ) : (
-                    <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>)
+                        <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)
                 }
 
             </Card.Body>

@@ -1,7 +1,10 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState } from "react"
 import { db } from "../../services/config"
 import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore"
 import { CarritoContext } from "../../context/CarritoContext";
+
+// CSS
+import "./Checkout.css"
 
 const Checkout = () => {
 
@@ -13,7 +16,7 @@ const Checkout = () => {
     const [error, setError] = useState("");
     const [ordenId, setOrdenId] = useState("");
 
-    const { carrito, vaciarCarrito, total, cantidadTotal } = useContext(CarritoContext);
+    const { carrito, vaciarCarrito, total } = useContext(CarritoContext);
 
 
     // FUNCIONES Y VALIDACIONES
@@ -82,33 +85,40 @@ const Checkout = () => {
     }
 
     return (
-        <div>
-            <h2>Checkout</h2>
+        <div id="checkout">
+            <h2 className="mb-4">Checkout</h2>
 
-            { (!ordenId) ? (
+            {(!ordenId) ? (
                 <form onSubmit={manejadorFormulario}>
 
-                    <div className="datos-compra">
+                    <div className="datos-compra p-0">
 
-                        <h3>Su compra: </h3>
-                        {
-                            carrito.map(producto => (
-                                <div key={producto.item.id}>
-                                    <p> {producto.item.nombre} x {producto.cantidad} </p>
-                                    <p> {producto.item.precio} </p>
-                                    <hr />
-                                </div>
-                            ))
-                        }
+                        <h3 className="fs-4 mb-3">Su compra: </h3>
 
-                        <p> Cantidad total de productos: {cantidadTotal} </p>
+                        <ul>
+                            {
+                                carrito.map(producto => (
+                                    <li key={producto.item.id} className="productos-checkout">
 
-                        <span> Total a pagar: {total}</span>
-                        <img className='currency-icon d-inline-block px-1' src="" alt="corazones" />
+                                        <span> {producto.item.nombre} x {producto.cantidad} - {producto.item.precio * producto.cantidad} </span> 
+                                        <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
+
+                                    </li>
+                                ))
+                            }
+                        </ul>
+
+                        <hr />
+
+                        <div className="precio">
+                            <span>  <strong> Total: </strong> {total} </span>
+                            <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
+                        </div>
 
                     </div>
 
-                    <hr />
+         
+                    <h3 className="fs-4 mb-3 mt-5"> Sus datos personales: </h3>
 
                     <div className="form-group">
                         <label htmlFor="nombre"> Nombre </label>
@@ -135,20 +145,26 @@ const Checkout = () => {
                         <input type="email" id="emailConfirmacion" value={emailConfirmacion} onChange={(e) => setEmailConfirmacion(e.target.value)} />
                     </div>
 
+
+
                     {
                         error && <p style={{ color: "red" }}> {error} </p>
                     }
 
 
-                    <button type="submit"> Finalizar compra </button>
+                    <button type="submit" className="button"> Finalizar compra </button>
 
 
                 </form>
             ) : (
-                <p>
-                    <strong> ¡Gracias por tu compra! </strong>
-                    Tu número de orden es {ordenId}.
-                </p>
+                <>
+                    <p className="m-0"> <strong> ¡Gracias por tu compra! </strong> </p>
+                    <p> Tu número de orden es {ordenId}. </p>
+                </>
+
+
+
+
             )}
         </div>
     )

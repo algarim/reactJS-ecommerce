@@ -9,10 +9,10 @@ import Footer from './components/Footer/Footer';
 import Checkout from './components/Checkout/Checkout';
 
 
-// Style
-import './App.css'
 // BOOTSTRAP Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Style
+import './App.css'
 
 
 function App() {

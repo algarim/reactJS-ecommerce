@@ -1,0 +1,34 @@
+.add-to-cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.counter {
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+}
+
+.counter-number {
+    width: 35px;
+}
+
+.counter button {
+    width: 35px;
+    padding: 8px;
+    border: 0;
+}
+
+.boton-decrementar {
+    border-radius: 8px 0 0 8px;
+}
+
+.boton-incrementar {
+    border-radius: 0 8px 8px 0;
+}
+

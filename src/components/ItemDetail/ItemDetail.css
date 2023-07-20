@@ -2,9 +2,3 @@
     max-width: 750px;
     margin: auto;
 }
-.add-to-cart-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}

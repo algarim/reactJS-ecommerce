@@ -1,5 +1,8 @@
 import { useState } from "react"
 
+// CSS
+import "./ItemCount.css"
+
 const ItemCount = ({ inicial, stock, mostrarContador = true, funcionAgregar }) => {
     const [contador, setContador] = useState(inicial);
 
@@ -20,10 +23,10 @@ const ItemCount = ({ inicial, stock, mostrarContador = true, funcionAgregar }) =
     return (
         <div className="add-to-cart-button">
             {mostrarContador && (
-                <div className="d-flex align-items-center">
-                    <button onClick={decrementarContador} className="btn"> - </button>
-                    <span> {contador} </span>
-                    <button onClick={incrementarContador} className="btn"> + </button>
+                <div className="d-flex align-items-center counter">
+                    <button onClick={decrementarContador} className="button boton-decrementar"> - </button>
+                    <span className="counter-number"> {contador} </span>
+                    <button onClick={incrementarContador} className="button boton-incrementar"> + </button>
                 </div>
                 )
             }

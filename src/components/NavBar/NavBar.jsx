@@ -1,5 +1,4 @@
 import './NavBar.css'
-import logo from "../../assets/img/paw.png"
 
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
@@ -19,7 +18,7 @@ const NavBar = () => {
         <header>
             <Link to={'/'} className='logo link'>
                 <h1>Gatitienda</h1>
-                <img src={logo} alt="Mano Gatito Corazón" />
+                <img src="../img/paw.png" alt="Logo" />
             </Link>
 
 
