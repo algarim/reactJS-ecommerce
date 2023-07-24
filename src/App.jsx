@@ -8,8 +8,6 @@ import { CarritoProvider } from './context/CarritoContext';
 import Footer from './components/Footer/Footer';
 import Checkout from './components/Checkout/Checkout';
 
-// BOOTSTRAP Styles
-import 'bootstrap/dist/css/bootstrap.min.css';
 // Style
 import './App.css'
 

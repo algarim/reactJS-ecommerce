@@ -2,18 +2,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    gap: 10px;
 }
 
 .carrito-item-descripcion {
     flex: 1;
 }
 
-.carrito-item-cantidad {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
 .carrito-item-eliminar img {
     height: 35px;
+}
+
+.precio-unidad {
+    font-size: 0.9rem;
 }

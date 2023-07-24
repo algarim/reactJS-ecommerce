@@ -24,33 +24,33 @@ const CartItem = ({ item, cantidad }) => {
               <div className="carrito-item-info">
 
                 <div className="carrito-item-descripcion">
-                  <h5 className="card-title"> {item.nombre} </h5>
+                  <h5 className="card-title fs-4"> {item.nombre} </h5>
 
                   <div className="card-text precio">
-                    <span> {item.precio} </span>
+                    <span className="precio-unidad"> Precio por unidad: {item.precio} </span>
                     <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
                   </div>
+
+                  <p className="card-text m-2"> Cantidad: {cantidad}</p>
                 </div>
 
+
+
+                <div className="precio fs-5">
+                  <span> {item.precio * cantidad} </span>
+                  <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
+                </div>
 
 
                 <div>
-
-                  <div className="carrito-item-cantidad">
-                    <p className="card-text m-0"> Cantidad: {cantidad}</p>
-                    <button className="carrito-item-eliminar btn p-0" onClick={() => eliminarProducto(item.id)}>
-                      <img src="../img/bin.png" alt="Eliminar producto" />
-                    </button>
-                  </div>
-
+                  <button className="carrito-item-eliminar btn p-0" onClick={() => eliminarProducto(item.id)}>
+                    <img src="../img/bin.png" alt="Eliminar producto" />
+                  </button>
                 </div>
 
+
               </div>
 
-              <div className="carrito-item-subtotal precio">
-                <span> Subtotal: {item.precio * cantidad} </span>
-                <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
-              </div>
 
 
 
