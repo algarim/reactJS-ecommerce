@@ -1,7 +1,3 @@
-.currency-icon{
-    height: 1rem;
-}
-
 .product-img {
     object-fit: cover;
 }
@@ -9,10 +5,7 @@
 .product-card {
     width: 330px;
     margin: 15px;
-
-    background-color: white;
 }
-
 
 @media (min-width: 576px) {
     .product-card {

@@ -40,6 +40,10 @@ h2 {
   align-items: center;
 }
 
+.currency-icon{
+  height: 1em;
+}
+
 /* BOTONES */
 .button {
   border-radius: 8px;
@@ -72,4 +76,10 @@ h2 {
 .button-alt:hover{
   background-color: #0b5ed7;
   border-color: #0a58ca;
+}
+
+
+/* Cambios a clases de Bootstrap */
+.card-body {
+  background-color: white;
 }

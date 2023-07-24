@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 //2) Creamos un nuevo contexto: 
 
@@ -9,9 +9,36 @@ export const CarritoContext = createContext({
 })
 
 export const CarritoProvider = ({children}) => {
-    const [carrito, setCarrito] = useState([]);
-    const [total, setTotal] = useState(0);
-    const [cantidadTotal, setCantidadTotal] = useState(0);
+
+    // Defino estados carrito, total y cantidadTotal usando localStorage
+    
+    const [carrito, setCarrito] = useState( () => {
+        const carritoGuardado = localStorage.getItem("carrito");
+
+        const carritoInicial = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+        return carritoInicial;
+    } );
+
+    const [total, setTotal] = useState( () => {
+        const totalGuardado = localStorage.getItem("total");
+
+        const totalInicial = Number(totalGuardado) || 0;
+        return totalInicial; 
+    });
+
+    const [cantidadTotal, setCantidadTotal] = useState( () => {
+        const cantidadTotalGuardada = localStorage.getItem("cantidadTotal");
+
+        const cantidadTotalInicial = Number(cantidadTotalGuardada) || 0;
+        return cantidadTotalInicial; 
+    });
+
+    // Actualizo el localStorage cuando alguno de los parámetros cambia
+    useEffect( () => {
+        localStorage.setItem("carrito", JSON.stringify(carrito) );
+        localStorage.setItem("total", total);
+        localStorage.setItem("cantidadTotal", cantidadTotal);
+    }, [carrito, total, cantidadTotal] )
 
     // METODOS: agregar y eliminar elementos; vaciar carrito
 

@@ -28,14 +28,19 @@ const Cart = () => {
 
             <hr />
 
-            
-            <h3 className="fs-4"> Total: $ {total} </h3>
+
+            <div className="fs-4 precio">
+
+                <h3 className="fs-4"> Total: {total} </h3>
+                <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
+
+            </div>
 
             <div className="carrito-buttons">
 
-            <button onClick={() => vaciarCarrito()} className="button">Vaciar carrito</button>
+                <button onClick={() => vaciarCarrito()} className="button">Vaciar carrito</button>
 
-            <Link to='/checkout' className="button button-alt" > Finalizar compra </Link>
+                <Link to='/checkout' className="button button-alt" > Finalizar compra </Link>
 
             </div>
         </div>
