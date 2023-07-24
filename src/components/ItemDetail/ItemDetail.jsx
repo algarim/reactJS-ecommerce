@@ -32,9 +32,12 @@ const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
                     <span>{precio}</span>
                     <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
 
-                    <Card.Text className='my-2 text-center'>
-                        Stock: {stock}*
-                    </Card.Text>
+                    {stock > 0 && (
+                        <Card.Text className='my-2 text-center'>
+                            Stock: {stock}
+                        </Card.Text>
+                    )}
+
 
                     <Card.Text className="my-3"> {descripcion} </Card.Text>
                 </div>
@@ -49,9 +52,9 @@ const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
 
                         stock > 0 ? (
                             <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />
-                        ) : ( <p className="error-text fw-bold"> Sin stock</p> )
-                        
-                        )
+                        ) : (<p className="error-text fw-bold"> Sin stock </p>)
+
+                    )
                 }
 
 

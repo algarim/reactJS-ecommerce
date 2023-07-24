@@ -31,7 +31,7 @@ const Item = ({ id, img, nombre, precio, stock }) => {
                         Stock: {stock}*
                     </Card.Text>) : (
                     <Card.Text className='my-2 error-text fw-bold'>
-                        Sin stock
+                        Sin stock*
                     </Card.Text>)
                 }
                 <div className='d-flex justify-content-center align-items-center flex-wrap'>
