@@ -39,6 +39,11 @@ h2 {
   height: 1em;
 }
 
+.error-text {
+  color: red;
+  text-align: center;
+}
+
 /* BOTONES */
 .button {
   border-radius: 8px;

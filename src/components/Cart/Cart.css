@@ -5,6 +5,12 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .carrito-buttons{
     display: flex;
     align-items: center;

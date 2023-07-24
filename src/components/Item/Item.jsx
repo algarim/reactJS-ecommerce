@@ -26,17 +26,24 @@ const Item = ({ id, img, nombre, precio, stock }) => {
                     <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
                 </Card.Text>
 
-                <Card.Text className='my-2'>
-                    Stock: {stock}*
-                </Card.Text>
-
+                {stock > 0 ? (
+                    <Card.Text className='my-2'>
+                        Stock: {stock}*
+                    </Card.Text>) : (
+                    <Card.Text className='my-2 error-text fw-bold'>
+                        Sin stock
+                    </Card.Text>)
+                }
                 <div className='d-flex justify-content-center align-items-center flex-wrap'>
                     <Link to={`/item/${id}`} className='m-2 button button-alt'> Ver detalles </Link>
 
-                    <ItemCount inicial={1} stock={stock} mostrarContador={false} funcionAgregar={manejadorAgregar} />
+                    {stock > 0 && (
+                        <ItemCount inicial={1} stock={stock} mostrarContador={false} funcionAgregar={manejadorAgregar} />
+                    )}
+
                 </div>
             </Card.Body>
-        </Card>
+        </Card >
     );
 }
 

@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { db } from "../../services/config"
 import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore"
 import { CarritoContext } from "../../context/CarritoContext";
+import { Link } from "react-router-dom";
 
 // CSS
 import "./Checkout.css"
@@ -14,6 +15,7 @@ const Checkout = () => {
     const [email, setEmail] = useState("");
     const [emailConfirmacion, setEmailConfirmacion] = useState("");
     const [error, setError] = useState("");
+    const [sinStock, setSinStock] = useState(false);
     const [ordenId, setOrdenId] = useState("");
 
     const { carrito, vaciarCarrito, total } = useContext(CarritoContext);
@@ -62,9 +64,18 @@ const Checkout = () => {
 
                 const stockActual = productoDoc.data().stock;
 
-                await updateDoc(productoRef, {
-                    stock: stockActual - productoOrden.cantidad
-                })
+                if (stockActual - productoOrden.cantidad >= 0) {
+                    setSinStock(false);
+
+                    await updateDoc(productoRef, {
+                        stock: stockActual - productoOrden.cantidad
+                    })
+
+                } else {
+                    setSinStock(true);
+
+                    throw new Error("No hay stock de alguno de los productos seleccionados.");
+                }
             })
         )
             .then(() => {
@@ -86,7 +97,7 @@ const Checkout = () => {
 
     return (
         <div id="checkout">
-            <h2 className="mb-4">Checkout</h2>
+            <h2 className="mb-4 text-center">Checkout</h2>
 
             {(!ordenId) ? (
                 <form onSubmit={manejadorFormulario}>
@@ -100,7 +111,7 @@ const Checkout = () => {
                                 carrito.map(producto => (
                                     <li key={producto.item.id} className="productos-checkout">
 
-                                        <span> {producto.item.nombre} x {producto.cantidad} - {producto.item.precio * producto.cantidad} </span> 
+                                        <span> {producto.item.nombre} x {producto.cantidad} - {producto.item.precio * producto.cantidad} </span>
                                         <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
 
                                     </li>
@@ -117,7 +128,7 @@ const Checkout = () => {
 
                     </div>
 
-         
+
                     <h3 className="fs-4 mb-3 mt-5"> Sus datos personales: </h3>
 
                     <div className="form-group">
@@ -148,11 +159,25 @@ const Checkout = () => {
 
 
                     {
-                        error && <p style={{ color: "red" }}> {error} </p>
+                        (error && !sinStock) && <p className="error-text mx-4"> {error} </p>
+                    }
+
+                    {
+                        (sinStock) ? (
+                            <>
+
+                                <p className="error-text mx-4"> Error al crear la orden. Uno de los productos seleccionados se quedó sin stock. </p>
+
+                                <Link to="/" className="button error-text"> Volver a la tienda </Link>
+
+                            </>
+                        ) : (
+                            <button type="submit" className="button"> Finalizar compra </button>
+                        )
                     }
 
 
-                    <button type="submit" className="button"> Finalizar compra </button>
+                    
 
 
                 </form>

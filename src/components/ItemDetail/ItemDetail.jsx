@@ -46,8 +46,14 @@ const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
                             <Link to='/' className="button"> Volver a la tienda </Link>
                         </div>
                     ) : (
-                        <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)
+
+                        stock > 0 ? (
+                            <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />
+                        ) : ( <p className="error-text fw-bold"> Sin stock</p> )
+                        
+                        )
                 }
+
 
             </Card.Body>
         </Card >
