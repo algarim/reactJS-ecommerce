@@ -18,7 +18,7 @@ const Item = ({ id, img, nombre, precio, stock }) => {
     return (
         <Card className='product-card'>
             <Card.Img className='product-img' variant="top" src={img} />
-            <Card.Body className='p-2'>
+            <Card.Body className='p-2 text-center'>
                 <Card.Title className='fs-4 mb-1'>{nombre}</Card.Title>
 
                 <Card.Text className='m-1 precio'>

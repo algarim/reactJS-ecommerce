@@ -26,8 +26,9 @@ const CartItem = ({ item, cantidad }) => {
                 <div className="carrito-item-descripcion">
                   <h5 className="card-title fs-4"> {item.nombre} </h5>
 
-                  <div className="card-text precio">
-                    <span className="precio-unidad"> Precio por unidad: {item.precio} </span>
+                  <div className="card-text precio precio-unidad">
+                    <span> precio x unidad: </span>
+                    <span className="ms-2"> {item.precio}  </span>
                     <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />
                   </div>
 

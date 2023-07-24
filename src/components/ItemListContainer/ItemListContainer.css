@@ -24,12 +24,13 @@ h2 {
     font-weight: bold;
     color: black;
 
-    display: inline-block;
+    margin: auto;
 }
 
 .cat-title h2 {
-    padding: 35px 120px;
+    padding: 20px 120px;
     display: inline-block;
+    text-align: center;
 }
 
 .text-background {
