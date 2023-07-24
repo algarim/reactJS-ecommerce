@@ -25,7 +25,7 @@ const ItemListContainer = (props) => {
           const data = doc.data();
           return { id: doc.id, ...data };
         });
-        
+
         setProductos(nuevosProductos);
       })
       .catch(error => console.log(error));
@@ -33,7 +33,9 @@ const ItemListContainer = (props) => {
 
   return (
     <>
-      <h2 className='m-4 cat-title'>{titulo}</h2>
+      <div className='my-4 cat-title'>
+        <h2>{titulo}</h2>
+      </div>
       <ItemList productos={productos} />
 
       <p className='my-4 text-background' > *Para asegurar stock, nuestros gatitos son clonados regularmente en instalaciones especializadas. </p>

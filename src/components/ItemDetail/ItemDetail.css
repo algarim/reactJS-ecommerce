@@ -1,4 +1,13 @@
-.details-card {
+.detail-card {
     max-width: 750px;
     margin: auto;
+}
+
+.detail-finalizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    gap: 10px;
 }

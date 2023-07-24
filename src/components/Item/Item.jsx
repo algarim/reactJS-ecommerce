@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import { CarritoContext } from '../../context/CarritoContext';
 
 //BOOTSTRAP
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
@@ -32,7 +31,7 @@ const Item = ({ id, img, nombre, precio, stock }) => {
                 </Card.Text>
 
                 <div className='d-flex justify-content-center align-items-center flex-wrap'>
-                    <Button as={Link} to={`/item/${id}`} variant="primary" className='m-2'> Ver detalles </Button>
+                    <Link to={`/item/${id}`} className='m-2 button button-alt'> Ver detalles </Link>
 
                     <ItemCount inicial={1} stock={stock} mostrarContador={false} funcionAgregar={manejadorAgregar} />
                 </div>

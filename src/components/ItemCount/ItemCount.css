@@ -24,11 +24,11 @@
     border: 0;
 }
 
-.boton-decrementar {
+.add-to-cart-button .boton-decrementar {
     border-radius: 8px 0 0 8px;
 }
 
-.boton-incrementar {
+.add-to-cart-button .boton-incrementar {
     border-radius: 0 8px 8px 0;
 }
 

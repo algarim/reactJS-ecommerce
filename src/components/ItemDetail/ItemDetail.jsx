@@ -23,7 +23,7 @@ const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
     }
 
     return (
-        <Card className='details-card'>
+        <Card className='detail-card'>
             <Card.Img className='product-img' variant="top" src={img} />
             <Card.Body>
                 <Card.Title className='fs-4'>{nombre}</Card.Title>
@@ -41,9 +41,9 @@ const ItemDetail = ({ id, nombre, precio, stock, img, descripcion }) => {
 
                 {
                     agregarCantidad > 0 ? (
-                        <div>
-                            <Link to='/cart' className="me-2 btn btn-primary"> Finalizar compra </Link>
-                            <Link to='/' className="ms-2 button"> Volver a la tienda </Link>
+                        <div className="detail-finalizar">
+                            <Link to='/cart' className="button button-alt"> Finalizar compra </Link>
+                            <Link to='/' className="button"> Volver a la tienda </Link>
                         </div>
                     ) : (
                         <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)

@@ -11,19 +11,25 @@ h2 {
 
 .cat-title {
     background-image: url("../../img/red-highlighter.png");
-    background-size: 80vw 100px;
-    background-repeat: no-repeat;
-    background-position: 60% 50%;
-    height: 100px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    
+    background-size: 100% 100% ;
+    background-position: center;
+    background-repeat: no-repeat;
 
     font-family: 'Caveat', cursive;
     font-size: 2.5rem;
     font-weight: bold;
     color: black;
+
+    display: inline-block;
+}
+
+.cat-title h2 {
+    padding: 35px 120px;
+    display: inline-block;
 }
 
 .text-background {
@@ -31,32 +37,9 @@ h2 {
     display: inline-block;
 }
 
-@media (max-width: 1200px) {
-    .cat-title {
-        background-size: 95vw 100px;
-        background-position: 35px 50%;
-    }
-}
-
-@media (max-width: 900px) {
-    .cat-title {
-        height: 150px;
-        background-size: 105vw 150px;
-        background-position: -20px 50%;
-    }
-}
 
 @media (max-width: 576px) {
-    .cat-title {
-        height: 200px;
-        background-size: 100vw 200px;
-        background-position: 0 50%;
-    }
-}
-
-@media (max-width: 420px) {
-    .cat-title {
-        height: 230px;
-        background-size: 90vw 230px;
+    .cat-title h2 {
+        padding: 45px 35px;
     }
 }
