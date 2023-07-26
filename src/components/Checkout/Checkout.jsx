@@ -183,8 +183,7 @@ const Checkout = () => {
                 </form>
             ) : (
                 <>
-                    <p className="m-0"> <strong> ¡Gracias por tu compra! </strong> </p>
-                    <p> Tu número de orden es {ordenId}. </p>
+                    <p className="m-0 px-3 text-center"> <strong> ¡Gracias por tu compra! </strong> Tu número de orden es {ordenId}.  </p>
                 </>
 
 
