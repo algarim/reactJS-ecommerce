@@ -15,7 +15,7 @@ import './App.css'
 function App() {
 
   return (
-    <>
+    <div className='body-flex'>
       <BrowserRouter>
         <CarritoProvider>
           
@@ -36,7 +36,7 @@ function App() {
 
         </CarritoProvider>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 

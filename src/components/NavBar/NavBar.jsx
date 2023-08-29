@@ -37,21 +37,21 @@ const NavBar = () => {
 
             <Navbar expand='md' className="my-1 navbar">
                 <Container fluid>
-                    <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" className='m-auto' onClick={toggleMenu} />
+                    <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" onClick={toggleMenu} />
                     <Navbar.Offcanvas
                         id="offcanvasNavbar-expand-md"
-                        placement="end"
+                        placement="start"
                         restoreFocus={false}
                         show={menuAbierto}
                         onHide={handleClose}
-                        className="pt-2 background-color w-auto px-3"
+                        className="pt-2 background-color w-auto px-3 offcanvas-width"
                     >
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel-expand-md" className='pe-5'>
+                            <Offcanvas.Title id="offcanvasNavbarLabel-expand-md" className='offcanvas-text'>
                                 Categorías
                             </Offcanvas.Title>
                         </Offcanvas.Header>
-                        <Offcanvas.Body>
+                        <Offcanvas.Body className='offcanvas-text'>
                             <Nav className="justify-content-md-evenly flex-grow-1">
                                 <Nav.Link as={NavLink} to="/categoria/cariñosos" className="navbar-categoria" onClick={handleClose} >Cariñosos</Nav.Link>
                                 <Nav.Link as={NavLink} to="/categoria/tranquilos" className="navbar-categoria" onClick={handleClose}>Tranquilos</Nav.Link>

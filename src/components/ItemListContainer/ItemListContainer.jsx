@@ -9,16 +9,20 @@ import { db } from '../../services/config'
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({ greeting }) => {
   const [productos, setProductos] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { idCategoria } = useParams();
 
-  let titulo = idCategoria ? `Gatitos ${idCategoria}` : props.greeting;
+  let titulo = idCategoria ? `Gatitos ${idCategoria}` : greeting;
 
   // Traemos los productos requiridos del inventario cada vez que se carga la página o se cambia de categoría
 
   useEffect(() => {
+    setIsLoading(true);
+
     const misProductos = idCategoria ? query(collection(db, "inventario"), where("idCat", "==", idCategoria)) : collection(db, "inventario");
 
     getDocs(misProductos)
@@ -29,9 +33,18 @@ const ItemListContainer = (props) => {
         });
 
         setProductos(nuevosProductos);
+        setIsLoading(false);
       })
       .catch(error => console.log(error));
   }, [idCategoria])
+
+  if (isLoading) {
+    return (
+      <div className='p-3 loading-animation'>
+        <img src="../img/loading.gif" alt="Cargando..." />
+      </div>
+    );
+  }
 
   return (
     <>

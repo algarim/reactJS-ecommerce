@@ -18,12 +18,16 @@ const Checkout = () => {
     const [sinStock, setSinStock] = useState(false);
     const [ordenId, setOrdenId] = useState("");
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const { carrito, vaciarCarrito, total } = useContext(CarritoContext);
 
 
     // FUNCIONES Y VALIDACIONES
 
     const manejadorFormulario = (event) => {
+        setIsLoading(true);
+
         event.preventDefault();
 
         //Verificamos que los campos estén completos:
@@ -83,16 +87,27 @@ const Checkout = () => {
                     .then(docRef => {
                         setOrdenId(docRef.id);
                         vaciarCarrito();
+                        setIsLoading(false);
                     })
                     .catch(error => {
                         console.log("Error al crear la orden: ", error);
                         setError("Error al crear la orden. Intente nuevamente más tarde.");
+                        setIsLoading(false);
                     });
             })
             .catch(error => {
                 console.log("No se pudo actualizar el stock.", error);
                 setError("Error al crear la orden. Intente nuevamente más tarde.")
+                setIsLoading(false);
             })
+    }
+
+    if (isLoading) {
+        return (
+            <div className='p-3 loading-animation'>
+                <img src="../img/loading.gif" alt="Cargando..." />
+            </div>
+        );
     }
 
     return (
@@ -177,14 +192,16 @@ const Checkout = () => {
                     }
 
 
-                    
+
 
 
                 </form>
             ) : (
-                <>
-                    <p className="m-0 px-3 text-center"> <strong> ¡Gracias por tu compra! </strong> Tu número de orden es {ordenId}.  </p>
-                </>
+                <div className="compra-realizada">
+                    <p className="m-0 px-3 text-center"> <strong> ¡Gracias por tu compra! </strong> El ID de orden es {ordenId}.  </p>
+
+                    <img src="../img/happy-cat.png" alt="Gatito Contento"/>
+                </div>
 
 
 

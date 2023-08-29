@@ -16,10 +16,10 @@ const Item = ({ id, img, nombre, precio, stock }) => {
     }
 
     return (
-        <Card className='product-card'>
-            <Card.Img className='product-img' variant="top" src={img} />
+        <Card className='product-card product-shadow'>
+            <Card.Img className='product-img mb-2' variant="top" src={img} />
             <Card.Body className='p-2 text-center'>
-                <Card.Title className='fs-4 mb-1'>{nombre}</Card.Title>
+                <Card.Title className='fs-4 mb-2 fw-bold'>{nombre}</Card.Title>
 
                 <Card.Text className='m-1 precio'>
                     <span>{precio}</span>
@@ -34,7 +34,7 @@ const Item = ({ id, img, nombre, precio, stock }) => {
                         Sin stock*
                     </Card.Text>)
                 }
-                <div className='d-flex justify-content-center align-items-center flex-wrap'>
+                <div className='d-flex justify-content-center align-items-center flex-wrap mb-1'>
                     <Link to={`/item/${id}`} className='m-2 button button-alt'> Ver detalles </Link>
 
                     {stock > 0 && (

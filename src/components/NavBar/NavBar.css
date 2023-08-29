@@ -47,18 +47,24 @@ header {
 .navbar-categoria {
     text-align: left;
     font-family: 'Caveat', cursive;
-    font-size: 1.4rem !important;
+    font-size: 1.5rem !important;
 }
 
 .background-color {
     background-color: rgb(253, 215, 215) !important;
 }
 
-.offcanvas-size {
-    width: max-content !important;
-    padding: 0 10px;
+.offcanvas-text {
+    padding-right: 80px;
 }
 
+
+@media (max-width: 767px) {
+    .navbar {
+        order: -1;
+        justify-self: flex-start;
+    }
+}
 
 @media (max-width: 576px) {
     .logo h1 {
@@ -71,3 +77,16 @@ header {
         height: 45px;
     }
 }
+
+@media (max-width: 480px) {
+    .offcanvas-width{
+        width: 100vw !important;
+    }
+
+    .offcanvas-text {
+        padding-right: 0;
+        padding-left: 0;
+        margin: auto;
+    }
+}
+

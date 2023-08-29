@@ -10,7 +10,7 @@ const CartItem = ({ item, cantidad }) => {
   return (
     <div>
 
-      <div className="card mb-3">
+      <div className="card mb-3 carrito-card">
         <div className="row g-0 d-flex align-items-center">
 
           <div className="col-md-4">
@@ -24,9 +24,9 @@ const CartItem = ({ item, cantidad }) => {
               <div className="carrito-item-info">
 
                 <div className="carrito-item-descripcion">
-                  <h5 className="card-title fs-4"> {item.nombre} </h5>
+                  <h5 className="card-title fs-4 fw-bold"> {item.nombre} </h5>
 
-                  <div className="card-text precio precio-unidad">
+                  <div className="card-text precio precio-unidad d-none d-sm-block">
                     <span> precio x unidad: </span>
                     <span className="ms-2"> {item.precio}  </span>
                     <img className='currency-icon d-inline-block px-1' src="../img/heart.png" alt="corazones" />

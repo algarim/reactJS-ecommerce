@@ -1,8 +1,11 @@
 #checkout {
     max-width: 900px;
-    margin: auto;
-    padding: 35px 0;
-    background-color: rgba(255, 255, 255, 0.6);
+    margin: 15px auto;
+    padding: 20px 30px 25px 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    border-radius: 50px;
+    border: 1px solid rgb(209, 209, 209);
 }
 
 #checkout form {
@@ -33,4 +36,15 @@
 
 #checkout button {
     margin-top: 10px;
-};
+}
+
+.compra-realizada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compra-realizada img {
+    height: 185px;
+    margin: 20px 0 20px 30px;
+}

@@ -12,6 +12,7 @@ const Cart = () => {
     if (cantidadTotal === 0) {
         return (
             <div id="carrito" className="carrito-vacio">
+                <img src="../img/sad-cat2.png" alt="Gatito Triste"/>
                 <h3 className="mb-4">El carrito está vacío</h3>
                 <Link to="/" className="button"> Volver a la tienda </Link>
             </div>
