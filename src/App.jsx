@@ -28,7 +28,7 @@ function App() {
             <Route path='/item/:idItem' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
-            <Route path='/*' element={<h3> La página que busca no existe </h3>} />
+            <Route path='/*' element={<h3 className='m-auto fw-bold'> La página que busca no existe </h3>} />
 
           </Routes>
 

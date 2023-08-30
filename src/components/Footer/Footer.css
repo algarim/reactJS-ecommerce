@@ -17,3 +17,8 @@ footer p {
 .disclaimer{
     font-size: 0.8rem;
 }
+
+.footer-link {
+    color: blue;
+    text-decoration: underline;
+}
