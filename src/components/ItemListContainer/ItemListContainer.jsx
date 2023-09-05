@@ -33,9 +33,9 @@ const ItemListContainer = ({ greeting }) => {
         });
 
         setProductos(nuevosProductos);
-        setIsLoading(false);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally( () => setIsLoading(false) );
   }, [idCategoria])
 
   if (isLoading) {

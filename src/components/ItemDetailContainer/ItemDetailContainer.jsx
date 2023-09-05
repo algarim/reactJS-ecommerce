@@ -24,9 +24,9 @@ const ItemDetailContainer = () => {
         const nuevoProducto = { id: res.id, ...data };
 
         setProducto(nuevoProducto);
-        setIsLoading(false);
       })
       .catch(error => console.log(error))
+      .finally( () => setIsLoading(false) );
   }, [idItem])
 
   if (isLoading) {

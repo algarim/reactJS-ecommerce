@@ -87,19 +87,17 @@ const Checkout = () => {
                     .then(docRef => {
                         setOrdenId(docRef.id);
                         vaciarCarrito();
-                        setIsLoading(false);
                     })
                     .catch(error => {
                         console.log("Error al crear la orden: ", error);
                         setError("Error al crear la orden. Intente nuevamente más tarde.");
-                        setIsLoading(false);
                     });
             })
             .catch(error => {
                 console.log("No se pudo actualizar el stock.", error);
                 setError("Error al crear la orden. Intente nuevamente más tarde.")
-                setIsLoading(false);
             })
+            .finally( () => setIsLoading(false) );
     }
 
     if (isLoading) {
@@ -198,7 +196,7 @@ const Checkout = () => {
                 </form>
             ) : (
                 <div className="compra-realizada">
-                    <p className="m-0 px-3 text-center"> <strong> ¡Gracias por tu compra! </strong> El ID de orden es {ordenId}.  </p>
+                    <p className="m-0 px-3 text-center"> <strong> ¡Gracias por tu compra! </strong> El ID de tu orden es {ordenId}.  </p>
 
                     <img src="../img/happy-cat.png" alt="Gatito Contento"/>
                 </div>
